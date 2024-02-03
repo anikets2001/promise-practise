@@ -86,59 +86,59 @@ getAllUsers();
 // if you want to fetch data using fetch api in react.js we can use an useEffect hook
 
 // first of all we have to create a state to store the fetched data
-// const [users, setUsers] = useState([]);
+const [users, setUsers] = useState([]);
 
-// useEffect(() => {
-//   // fetch the data using fetch api
-//   async function getUsers() {
-//     try {
-//       const response = await fetch(
-//         "https://jsonplaceholder.typicode.com/users"
-//       );
-//       const data = await response.json();
-//       setUsers(data);
-//     } catch {
-//       console.log("Something went wrong!");
-//     }
-//   }
+useEffect(() => {
+  // fetch the data using fetch api
+  async function getUsers() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      const data = await response.json();
+      setUsers(data);
+    } catch {
+      console.log("Something went wrong!");
+    }
+  }
 
-//   getUsers();
-// }, []);
+  getUsers();
+}, []);
 
-// console.log(users)
+console.log(users)
 
 
 // The complete react component which fetch the data from api and map that data 
-// import React from "react";
+import React from "react";
 
-// export default function App() {
-//   const [users, setUsers] = React.useState([]);
+export default function App() {
+  const [users, setUsers] = React.useState([]);
 
-//   React.useEffect(() => {
-//     // fetch the data using fetch api
-//     async function getUsers() {
-//       try {
-//         const response = await fetch(
-//           "https://jsonplaceholder.typicode.com/users"
-//         );
-//         const data = await response.json();
-//         setUsers(data);
-//       } catch (error) {
-//         console.log("Something went wrong!", error);
-//       }
-//     }
+  React.useEffect(() => {
+    // fetch the data using fetch api
+    async function getUsers() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.log("Something went wrong!", error);
+      }
+    }
 
-//     getUsers();
-//   }, []);
+    getUsers();
+  }, []);
 
-//   return (
-//     <>
-//       {users.map((user, index) => (
-//         <h3 key={index}>
-//           {index + 1}. {user.name}
-//         </h3>
-//       ))}
-//     </>
-//   );
-// }
+  return (
+    <>
+      {users.map((user, index) => (
+        <h3 key={index}>
+          {index + 1}. {user.name}
+        </h3>
+      ))}
+    </>
+  );
+}
 
